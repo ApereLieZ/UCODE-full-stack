@@ -1,0 +1,192 @@
+*{
+    margin: 0;
+}
+
+.left-filters h1{
+    margin: 20px 0 0 40px;
+}
+
+header{
+    background-color: brown;
+    display: flex;
+    color: white;
+}
+.logo{
+    margin-left: 15px;
+    text-transform: uppercase;
+    position: relative;
+    top: 20px;
+}
+
+.filters-btn{
+    margin: 15px 0;
+}
+
+.filters-btn button{
+    padding: 10px 20px;
+    background-color: black;
+    border-radius: 40px;
+    border-color: black;
+    color: white;
+    margin: 0 45px;
+}
+.filters-btn button::after{
+    content: "  ✓";
+    margin-left: 5px;
+}
+
+.filters-btn button:hover{
+    color: green;
+}
+
+.conteiner{
+    margin: 25px 40px;
+}
+
+
+nav{
+    width: 100%;
+}
+
+nav ul{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+li{
+    display: flex;
+    margin: 20px;
+}
+.phone{
+    position: relative;
+
+    top: 20px;
+}
+
+.breadcrumbs{
+    font-size: 20px;
+    width: 100%;
+    background-color: gainsboro;
+}
+
+
+
+.filters{
+    grid-row-start: 1;
+    grid-row-end: 10;
+}
+
+img{
+    width: 250px;
+    height: 250px;
+    border-radius: 15px;
+}
+
+.left-filters{
+   grid-column: 100%;
+}
+
+.panels{
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr 2fr;
+}
+#main-good{
+    display: flex;
+    justify-content: center;
+}
+
+.check-box-filters{
+    display: grid;
+}
+
+.checkers{
+    display: flex;
+    flex-direction: column;
+}
+
+.checkers-items{
+    margin: 10px 0;
+}
+
+.item{
+    display: flex;
+}
+
+.item button{
+    background: brown;
+    text-transform: uppercase;
+    color: white;
+    height: 35px;
+    border-radius: 8px;
+    border: none;
+}
+
+.item button:hover{
+    background: gray;
+}
+
+a{
+    color: white;
+}
+
+.descriotion{
+    text-align: center;
+    justify-self: center;
+    display: flex;
+    margin-left: 15px;
+    width: 15%;
+    flex-direction: column;
+}
+.descriotion span{
+    margin: 10px;
+}
+
+::-webkit-input-placeholder {
+    text-align: center;
+ }
+
+:-ms-input-placeholder {  
+    text-align: center; 
+}
+
+.goods{
+    margin-bottom: 100px;
+}
+
+
+
+footer {
+    text-transform: uppercase;
+    text-align: center;
+    position: absolute;
+    color: white;
+    background-color: brown;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;            
+}
+
+@media only screen and (max-width: 1024px) {
+    .panels {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        
+    }
+}
+
+
+@media only screen and (max-width: 768px) {
+    .panels {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .panels {
+        display: grid;
+        grid-template-columns: 1fr;
+        
+    }
+}

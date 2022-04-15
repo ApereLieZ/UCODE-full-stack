@@ -1,0 +1,16 @@
+#hand{
+    width: 200px;
+}
+
+
+#hand:hover + table tbody tr:nth-child(odd) td:nth-child(odd) img {
+    display:none;
+}
+
+#hand:hover + table tbody tr:nth-child(even) td:nth-child(even) img {
+    display:none
+}
+
+.man{
+    height: 100px;
+}

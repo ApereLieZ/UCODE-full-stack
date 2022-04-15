@@ -1,0 +1,53 @@
+table{
+    min-width: 60px;
+    border-collapse: collapse;
+}
+
+
+tr{
+    text-align: center;
+    border: 1px solid white;
+}
+
+td {
+    border: 1px solid rgb(197, 197, 197);
+}
+
+thead{
+    background-color: #333;
+    color: #fff;
+}
+
+.Soul {
+    background-color: orange;
+}
+
+.Space {
+    background-color: blue;
+}
+
+.Mind{
+    background-color: yellow;
+}
+
+.Reality{
+    background-color: red;
+}
+
+.Power{
+    background-color: purple;
+}
+
+.IMG {
+    height: 120px;
+    width: 120px;
+    border-radius: 25px;
+}
+
+.Time {
+    background-color: green;
+}
+
+tfoot{
+    text-align: center;
+}

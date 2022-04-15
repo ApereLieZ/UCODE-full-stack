@@ -1,0 +1,61 @@
+*{
+    font-family: Verdana;
+    color: rgba(255, 255, 255);
+    font-size: 12px;
+}
+img{
+    height: 182px;
+    position: relative;
+    bottom: 42px;
+}
+p{
+    text-align: right;
+}
+
+p{
+    margin: 0;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 9px;
+}
+
+.main-div{
+    width: 100%;
+    position: relative;
+    top: 47px;
+    
+}
+.Name{
+    float:right;
+    padding: 7px 7px;
+}
+
+#spideriMG{
+    position: relative;
+    bottom: 25px;
+}
+
+#spider{
+    display: inline-block;
+    background: linear-gradient(#e52d27, #000);
+}
+
+#capitan{
+    display: inline-block;
+    background: linear-gradient(#4568DC, #B06AB3);
+}
+
+#iron{
+    display: inline-block;
+    background: linear-gradient(#e52d27, #b31217);
+}
+
+#widow{
+    display: inline-block;
+    background: linear-gradient(#000, #61045F);
+}
+
+div{
+    width: 270px;
+    height: 140px;
+    border-radius: 5px;
+}

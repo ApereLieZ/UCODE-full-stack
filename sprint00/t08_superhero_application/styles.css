@@ -1,0 +1,11 @@
+fieldset{
+    width: 900px;
+    border: 2px gray solid;
+    padding: 20px;
+}
+
+form{
+    border: 2px gray solid;
+    padding: 5px;
+    width: 950px;
+}

@@ -1,0 +1,28 @@
+
+.hover{
+    color: green;
+    padding: 0 10px;  
+      
+}
+
+
+button{
+    height: 2em;
+    flex-grow: 1;
+}
+
+.container{
+    display: flex;
+    justify-content: center;  
+    
+}
+
+
+input{
+    padding: 0;
+    flex-grow: 20; 
+}
+.hover:hover{
+    color: red;
+}
+

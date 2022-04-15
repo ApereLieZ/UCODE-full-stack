@@ -1,0 +1,21 @@
+
+.hover{
+    color: green;
+    padding: 0 10px;    
+}
+form{
+    display: flex;
+}
+
+button{
+    height: 2em;
+}
+
+input{
+    width: 100%;
+    padding: 0;
+}
+.hover:hover{
+    color: red;
+}
+

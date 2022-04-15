@@ -1,0 +1,46 @@
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    
+}
+
+.header{
+    text-align: center;
+    width: 100%;
+}
+
+body{
+    background-color: rgb(243, 178, 93);
+}
+
+.item{
+    margin: 2px;
+    border: black 1px solid;
+    background-color: blanchedalmond;
+    padding: 5px;
+}
+
+@media only screen and (max-width: 1024px) {
+    .container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        
+    }
+}
+
+
+@media only screen and (max-width: 768px) {
+    .container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .container {
+        display: grid;
+        grid-template-columns: 1fr;
+        
+    }
+}
