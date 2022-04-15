@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Superhero Form</h1>
+    <form action="/send" method="post" >
+        
+        <fieldset>
+            <legend>About The SuperHero</legend>
+            <label for="RL">Real Name</label>
+            <input name="name" type="text" placeholder="Superhero real name" autofocus id="RL">
+            
+            <label>Current Alias</label>
+            <input name="alias" type="text" placeholder="Superhero alias" >
+            <label>Age</label>
+            <input name="age" type="number" min="1" max="999" step="1">
+            <br>
+            <br>
+            <label>About</label>
+            <textarea name="descpription" cols="69" rows="5" maxlength="500"></textarea>
+            <br>
+            <br>
+            <label for="fls">Photo: </label>
+            <input name="myFile" type="file" id="fls">
+            
+        
+        </fieldset>
+        <fieldset>
+            <legend>Powers</legend>
+            
+
+                <input name="televines" type="checkbox" id="Televines">
+                <label for="Televines">Telecines</label>
+                <input name="Super_strengt" type="checkbox" id="Super_strengt">
+                <label for="Super_strengt">Super strength or speed</label>
+                <input name="fly" type="checkbox" id="fly">
+                <label  for="fly">Fly</label>
+                <input name="invicible" type="checkbox" id="Invicible">
+                <label for="Invicible">Invicible</label>
+                <input name="other" type="checkbox" id="Other">
+                <label for="Other">Other</label>
+                <br>
+                <br>
+                <label for="myRange">Level Of Control</label>
+                <input name="level" type="range" min="1" max="10" value="1" step="1" class="slider" id="myRange">
+
+        </fieldset>
+        <fieldset>
+            <legend>Origin of Power</legend>
+            
+            <input type="radio" name id="contactChoice1"
+                name="contact" value="1">
+            <label for="contactChoice1">Unknown</label>
+        
+            <input type="radio" id="contactChoice2"
+                name="contact" value="2">
+            <label for="contactChoice2">Freak lab accident</label>
+        
+            <input type="radio" id="contactChoice3"
+                name="contact" value="3">
+            <label for="contactChoice3">Chosen by an ancient wise being</label>
+            <input type="radio" id="contactChoice4" name="contact" value="4">
+            <label for="contactChoice3">The superhero is not a human</label>
+            <input type="radio" id="contactChoice5" name="contact" value="5">
+            <label for="contactChoice3">Other</label>
+
+        </fieldset>
+
+            <br>
+            <input type="reset" value="Reset">
+            <input type="submit" value="Submit">
+        
+        </form>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .container{
+            border: 2px solid black;
+            margin: 2px;
+            padding: 10px;
+        }
+
+        .hiden{
+            display: none;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>File Manager</h1>
+    <div class="container">
+        <h2>Create file</h2>
+        <form action="/create" method="post">
+            
+            <span>Filename</span>
+            <input name="fileName" type="text">
+            <br>
+            <span>Content</span>
+            <textarea name="content" id="" cols="30" rows="10"></textarea>
+            <input type="submit" >
+        </form>
+    </div>
+    <div class="container hiden" id="files">
+        <h2>Files</h2>
+        <div id="href_files" style="display:none;" thjs:text="${files}">
+            
+        </div>
+        <ul id="place_to_list">
+
+        </ul>
+    </div>
+
+    <div class="container hiden" id="content"> 
+        <h2>Selected File</h2>
+        <h3>DATA INFO</h3>
+        <p>Content</p>
+        <span id="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero ea officia sunt, debitis consectetur nulla cupiditate earum cumque? Nulla laboriosam, deserunt reiciendis dolorem sed cumque similique est tempora! Quisquam, repellat?</span>
+        <form action="/delete" method="post">
+            <button id="delete" type="submit" name="fileName" value="">Delete</button>
+        </form>
+    </div>
+    <script>
+        let files = document.querySelector("#files");
+        let filesTxt = document.querySelector("#href_files");
+        let filesJSON = JSON.parse(document.querySelector("#href_files").innerHTML);
+        let placeToList = document.querySelector("#place_to_list");
+        if(filesTxt.childNodes[0]){
+            files.setAttribute('style', 'display: block;');
+            filesJSON.forEach(element => {
+                placeToList.insertAdjacentHTML(
+                'beforeend',
+                `<li><a href="" onclick="normilizeHref(event)" content="${element.content}" class="link">${element.name}</a></li>`
+                )
+                });
+        }
+        function normilizeHref(event){
+            event.preventDefault()
+            document.querySelector('#content').style.display = 'block'
+            document.querySelector('h3').innerText = event.target.textContent
+            document.querySelector('#description').innerText = event.target.getAttribute('content')
+
+            document.querySelector('#delete').value = event.target.textContent
+        }
+
+    </script>
+</body>
+
+</html>

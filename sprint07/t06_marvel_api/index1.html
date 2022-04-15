@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body class="container">
+    
+</body>
+<script>
+    async function load(){
+        const data = await fetch('/send', {method:"POST"}).then(function (response) {
+	// The API call was successful!
+	return response.text();
+}).then(function (html) {
+
+	// Convert the HTML string into a document object
+	console.log(html);
+    let mp = document.querySelector(".container");
+    mp.innerHTML= html;
+
+}).catch(function (err) {
+	// There was an error
+	console.warn('Something went wrong.', err);
+});
+    }
+   load();
+    
+</script>
+</html>

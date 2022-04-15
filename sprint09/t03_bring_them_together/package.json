@@ -1,0 +1,19 @@
+{
+  "name": "sprint09",
+  "version": "1.0.0",
+  "description": "my registration",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "author": "yivanov",
+  "license": "ISC",
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "express": "^4.17.3",
+    "jsonwebtoken": "^8.5.1",
+    "mysql2": "^2.3.3",
+    "nodemailer": "^6.7.3",
+    "nodemon": "^2.0.15"
+  }
+}

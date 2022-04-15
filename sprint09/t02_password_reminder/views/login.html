@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="row ">
+
+        <form class="col s12 ">
+            <div class="row">
+                <div class="col s6 offset-s3">
+                    <h1>Login</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6 offset-s3">
+                    <i class="material-icons prefix">account_circle</i>
+                    <input id="login" name="login" minlength="4" type="text" class="validate">
+                    <span class="helper-text" data-error="login must be more then 4 symbols" data-success="ok"></span>
+                    <label for="login">login</label>
+                </div>
+
+            </div>
+            <div class="row ">
+                <div class="input-field col s6 offset-s3">
+                    <i class="material-icons prefix">vpn_key</i>
+                    <input id="password" name="password" type="password" minlength="4" class="validate">
+                    <span class="helper-text" data-error="password must be more then 4 symbols"
+                        data-success="ok"></span>
+                    <label for="password">Password</label>
+                </div>
+            </div>
+            
+            <div class="row">
+                
+                <div class="input-field col s3 offset-s3">
+                    <button id="submit" class="btn waves-effect waves-light" type="submit" name="action">Submit
+                        <i class="material-icons right">send</i>
+                    </button>
+                </div>
+                <div class="input-field col s2 offset-s2 " style="right: 29px;">
+                    <button id="foget_password" class="btn waves-effect waves-light" onclick="location.href='/remind_password';" type="button">Foget password ?
+                        
+                    </button>
+                </div>
+
+            </div>
+
+        </form>
+        <div class="col offset-s3 s6">
+            <br>
+            <div class="card">
+
+                <div class="card-content">
+                    <p id="noties"></p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        let noties = document.querySelector("#noties");
+        let login = document.querySelector("#login");
+        let password = document.querySelector("#password");
+        let submitBtn = document.querySelector("#submit");
+
+        function check(txt) {
+            let res = "";
+            if (login.value.length < 4) {
+                res += "login less then 4 ";
+
+            }
+            if (password.value.length < 4) {
+                res += "password less then 4";
+            }
+            return res;
+        }
+
+
+        submitBtn.addEventListener("click", async (event) => {
+            event.preventDefault();
+            let checkTxt = check();
+            if (checkTxt.length > 0) {
+                noties.innerHTML = checkTxt;
+                return;
+            }
+            const response = fetch("/login", {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: await JSON.stringify({
+                    login: login.value,
+                    password: password.value,
+                })
+            }).then(data => {
+                return data.json();
+            }).then(txt => {
+                if(txt.status){
+                    document.location.replace("/profile");
+                }
+                else{
+                    noties.innerHTML = txt.message;
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>

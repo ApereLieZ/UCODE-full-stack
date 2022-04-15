@@ -1,0 +1,31 @@
+
+.info label {
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    background: rgba(255, 0, 0, 0.7);
+    padding: 0.8%;
+    border-radius: 30px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+label.finish {
+    background: lightgreen;
+}
+.list {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+.list div {
+    display: flex;
+    margin-top: 2%;
+}
+img {
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}

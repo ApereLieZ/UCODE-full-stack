@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Password</h1>
+    <form action="/send" method="post">
+        <p id="status" style="color:red"></p>
+        <p>Password saved at session</p>
+        <p>Hash is <span id="hash"></span></p>
+        <p>Try to guess:</p>
+
+        <input type="password" name="salt" id="password">
+        <input type="button" id="btn" name="check" value="Check password">
+        <input type="reset" id="reset" name="clear" value="Clear">
+    </form>
+    <script>
+
+    function deleteAllCookies() {
+        var cookies = document.cookie.split(";");
+
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = cookies[i];
+            var eqPos = cookie.indexOf("=");
+            var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+            document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+        }
+    }
+
+
+        let btn = document.querySelector("#btn");
+        let reset = document.querySelector("#reset");
+        let status = document.querySelector("#status");
+        btn.addEventListener("click", checkPasword);
+        reset.addEventListener("click", resetBtn);
+
+        function getCookie(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
+        }
+        let hashText = document.querySelector("#hash");
+        hashText.innerHTML = getCookie("hash");
+
+        async function resetBtn(){
+            
+            const response = await fetch("/reset", { method: "POST"});
+            deleteAllCookies();
+            document.location.replace('/');
+            console.log("kek");
+        }
+
+        async function checkPasword(){
+            p = document.querySelector("#password").value;
+            const response = await fetch("/check", { method: "POST", headers: {'Content-Type': 'application/json'}, body: JSON.stringify({password : p})})
+            const responseText = await response.text();
+
+            if(responseText == "false"){
+                status.innerHTML = "NOOOOOOO";
+            }else{
+                document.location.replace('/');
+            }
+        }
+    </script>
+</body>
+</html>

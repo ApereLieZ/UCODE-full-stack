@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .bloc {
+        display: inline-block;
+        vertical-align: top;
+        overflow: hidden;
+        border: solid grey 1px;
+    }
+    .bloc select {
+        padding: 10px;
+        margin: -5px -20px -5px -5px;
+    }
+</style>
+<body>
+    <h1>Charset</h1>
+    <p>Change charset</p> 
+    <form action="/charset" method="POST">
+        <input type="text" name="string" placeholder="input string">
+        <p>Select charset or several charsets</p>
+        <div class="bloc">
+                <select multiple id="select" name="charsets">
+                    <option class="opt" name="utf" selected>UTF-8</option>
+                    <option class="opt" name="iso">ISO-8859-1</option>
+                    <option class="opt" name="win">Windows-1252</option>
+                </select>
+        </div>
+        <input type="submit" value="Change charset">
+        <button>Clear</button>
+    </form>
+
+    <div id="container">
+        <div class="hidden" style="display: none">
+            <label for="input">Input string: </label>
+            <textarea name="input" id="input" thjs:text="${input}"></textarea>
+        </div>
+        <div class="hidden" style="display: none">
+            <p>UTF-8:</p> 
+            <textarea name="utf" id="utf" thjs:text="${utf}"></textarea>
+        </div>
+        <div class="hidden" style="display: none">
+            <p>ISO-8859-1:</p>
+            <textarea name="iso" id="iso" thjs:text="${iso}"></textarea>
+        </div>
+        <div class="hidden" style="display: none">
+            <p>Windows-1252:</p>
+            <textarea name="win" id="win" thjs:text="${win}"></textarea>
+        </div>
+        <script>
+            let hidden = document.querySelectorAll('.hidden')
+            hidden.forEach(item => {
+                if (item.childNodes[3].innerHTML !== '') {
+                    item.setAttribute('style', 'display: block;');
+                }
+            })
+        </script>
+    
+</body>
+</html>

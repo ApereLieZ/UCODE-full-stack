@@ -1,0 +1,63 @@
+*{
+    padding: 0;
+    margin: 0;
+
+}
+body h1{
+    text-align: center;
+}
+.variant{
+    display: grid;
+    background-color: gainsboro;
+    grid-template-columns: 1fr 2fr 1fr;
+}
+
+ul{
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+}
+
+li{
+    border-radius: 5px;
+    width: auto;
+    background-color: rgb(104, 104, 224);
+    color: white;
+    padding: 5px;
+    margin: 0 10px;
+}
+
+
+.description{
+    margin-top: 20px;
+}
+
+img{
+    width: 200px;
+}
+
+.info{
+    
+    padding-left: 15px;
+}
+
+.switcher{
+    
+    display: flex;
+    flex-direction: column;
+}
+
+button{
+    margin: 0;
+    padding: 0;
+    border: none;
+    height: 40px; 
+}
+
+.active::before{
+    content: "";
+    position: relative;
+    height: 100px;
+    border-left: 2px solid rgb(104, 104, 224);;
+    right: 90px
+}

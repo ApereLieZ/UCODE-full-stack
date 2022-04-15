@@ -1,0 +1,15 @@
+img{
+    height: 400px;
+}
+
+.container{
+    border: 2px black solid;
+    text-align: center;
+}
+.btns{
+    width: 100%;
+}
+.btns button{
+    width: 15%;
+    height: 25px;
+}

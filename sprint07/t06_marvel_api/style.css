@@ -1,0 +1,17 @@
+ *{
+     font-size: 25px;
+ }
+.data-container{
+    background: rgb(60, 60, 60);
+    border: 2px solid rgb(153, 74, 74);
+    padding: 2px;
+    margin: 10px;
+}
+
+.item{
+    background: rgb(120, 120, 120);
+    border: 2px solid rgb(153, 74, 74);
+    padding: 2px;
+    margin: 20px;
+    
+}

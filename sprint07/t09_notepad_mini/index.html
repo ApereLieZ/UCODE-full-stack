@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Notepad mini</h1>
+    <form action="/send">
+        <input type="text" name="name" id="name" placeholder="Name">
+        <br>
+        <br>
+        <select id="select" name="selector">
+            <option value="low">low</option>
+            <option value="medium">medium</option>
+            <option value="hight">hight</option>
+          </select>
+          <br>
+          <br>
+          <textarea placeholder="Text of note..." name="content" id="text" cols="30" rows="10"></textarea>
+          <br>
+          <br>
+          <input type="button" id="btn" value="Create">
+    </form>
+    <h2>List of notes</h2>
+        <ul id="list">
+
+        </ul>
+    <h2>Detail of </h2>
+    <ul id="note">
+
+    </ul>
+    <script>
+        let list = document.querySelector("#list"); 
+        let btn = document.querySelector("#btn");
+        let note = document.querySelector("#note");
+
+        btn.addEventListener("click", sendData);
+        getList();
+
+        function fillNote(obj){
+            note.innerHTML = " ";
+            note.innerHTML += `<li>date: ${new Date(obj.date).toLocaleDateString()}</li>`;
+            note.innerHTML += `<li>name: ${obj.name}</li>`;
+            note.innerHTML += `<li>impotanse: ${obj.imp}</li>`;
+            note.innerHTML += `<li>text: ${obj.text}</li>`;
+        }
+
+        async function getInfo(e){
+
+            const response = await fetch(`/info?name=${e.name}`);
+            const data = await response.json();
+            fillNote(data);
+        }
+
+        async function getList(){
+            const response = await fetch("/update");
+            const arr = await response.json();
+            let txt = "";
+            for(let i = 0; i < arr.length; i++){
+                txt += `<li> <a href="#" onclick="getInfo(this)" name ="${arr[i].name}"> `+new Date(arr[i].date).toLocaleDateString() + "&gt" + arr[i].name + `</a> <a href='/delete?name=${arr[i].name}'>DELETE</a>  </li> `;
+            }
+            console.log(arr);
+            list.innerHTML = txt;
+        }
+        
+
+        async function sendData(){
+            let name = document.querySelector("#name").value;
+            let importants = document.querySelector("#select").value;
+            let text = document.querySelector("#text").value;
+            const response = fetch("/send", {
+                method: "POST",
+                headers: {
+                'Content-Type': 'application/json'
+                },
+                body: await JSON.stringify({
+                    name: name,
+                    imp: importants,
+                    text: text,
+                    date: Date.now()
+                })
+            }).then(data=> {
+                document.location.replace("/");
+            })
+    }
+
+    </script>
+</body>
+</html>

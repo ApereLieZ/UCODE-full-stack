@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Password</h1>
+    <form action="/send" method="post">
+        <p style="color: green;" id="hucked"></p>
+        <p id="session">Password not saved at session</p>
+        <p>Password for saving to session</p>
+        <input type="password" min="1" name="password" id="password">
+        <p>Salt for saving to session</p>
+        <input type="password" min="1" id="salt">
+        <input type="submit">
+    </form>
+    <script>
+        let hacked = document.querySelector("#hucked");
+
+        if(getCookie("finish")){
+            hacked.innerHTML = "Hucked";
+        }
+
+        function getCookie(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
+        }
+
+        async function sendPaswordAndSult(){
+            p = document.querySelector("#password").value;
+            s = document.querySelector("salt").value;
+            if(salt.length <= 1 || password.length <= 1)
+                return;
+            const response = await fetch("/send", { method: "POST", body: {password: p, salt: s}}).then(res => {
+                document.location = res.url;
+            });
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+console.log("Good morning!\nIt`s 7 A.M\nThe weather in Malibu us 72 degrees with scatted clouds.\nThe surf conditions are fair, high tide will be at 10:52 a.m.");

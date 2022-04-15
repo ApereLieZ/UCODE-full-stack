@@ -1,0 +1,21 @@
+table {
+    text-align: center;
+    outline: 3px solid black;
+    border-collapse: collapse;
+    margin: auto;
+  }
+  th {
+    background-color: rosybrown;
+    border: 1px solid whitesmoke; 
+    padding: 10px;
+    width: 50px;
+  }
+  tr {
+    border: 1px solid white;
+  }
+  td {
+    background-color: lightgrey;
+    border: 1px solid white;
+    padding: 10px;
+  }
+  
